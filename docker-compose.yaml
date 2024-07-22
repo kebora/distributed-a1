@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+
+  server:
+    container_name: server
+    build: server/
+    environment:
+      - SERVER_ID=server-1
+    ports:
+      - "4000:4000"
+    networks:
+      - app-networks
+
+
+  load_balancer:
+    container_name: load_balancer
+    build: load_balancer/
+    ports:
+      - "5000:5000"
+    networks:
+      - app-networks
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+
+  
+networks:
+  app-networks:
+    name: "app-networks"
+    driver: bridge
+    external: true
