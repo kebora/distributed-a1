@@ -26,7 +26,7 @@ Ensure that you have the following software installed on your system:
 
   ```bash
    git clone https://github.com/kebora/distributed-a1.git
-   cd Customizable-load-balancer
+   cd distributed-a1
 ```
 2. **Build Server Docker Image**
 
